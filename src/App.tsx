@@ -14,7 +14,9 @@ import {
   Heart,
   Users,
   Award,
-  Zap
+  Zap,
+  Moon,
+  Sun
 } from 'lucide-react';
 import { TranslationInterface } from './components/translation-interface';
 import { DiseasePrediction } from './components/disease-prediction';
@@ -22,6 +24,7 @@ import { DoctorRecommendations } from './components/doctor-recommendations';
 import { SignLanguageInterface } from './components/sign-language-interface';
 import { PatientHistory } from './components/patient-history';
 import { ImageWithFallback } from './components/figma/ImageWithFallback';
+import { DiseasePredictorPage } from "./DiseasePredictorPage";
 
 function LandingPage() {
   return (
@@ -239,6 +242,13 @@ export default function App() {
                 <FileText className="h-4 w-4 mr-2" />
                 Records
               </Button>
+              <Button 
+                variant={activeTab === 'mlpredictor' ? 'default' : 'ghost'} 
+                onClick={() => setActiveTab('mlpredictor')}
+                size="sm"
+              >
+                Disease Predictor (ML)
+              </Button>
             </nav>
             
             <div className="flex items-center gap-2">
@@ -284,6 +294,7 @@ export default function App() {
         {activeTab === 'doctors' && <DoctorRecommendations />}
         {activeTab === 'signs' && <SignLanguageInterface />}
         {activeTab === 'history' && <PatientHistory />}
+        {activeTab === 'mlpredictor' && <DiseasePredictorPage />}
       </main>
 
       <footer className="border-t bg-muted/30 mt-16">
