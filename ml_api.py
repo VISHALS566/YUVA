@@ -8,9 +8,9 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import StandardScaler
 from sklearn.compose import ColumnTransformer
-
+from sklearn.preprocessing import StandardScaler
 # Load and train model (same as MLMODEL.py)
-df = pd.read_excel("Dataset.csv.xlsx")
+df = pd.read_excel("Dataset.xlsx")
 
 def clean_symptoms(text):
     if isinstance(text, str):

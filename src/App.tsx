@@ -255,7 +255,7 @@ export default function App() {
               <Badge variant="outline" className="text-xs">
                 <Shield className="h-3 w-3 mr-1" />
                 HIPAA Compliant
-              </Badge>
+              </Badge>  
             </div>
           </div>
           
