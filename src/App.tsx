@@ -16,7 +16,8 @@ import {
   Award,
   Zap,
   Moon,
-  Sun
+  Sun,
+  Brain
 } from 'lucide-react';
 import { TranslationInterface } from './components/translation-interface';
 import { DiseasePrediction } from './components/disease-prediction';
@@ -24,7 +25,7 @@ import { DoctorRecommendations } from './components/doctor-recommendations';
 import { SignLanguageInterface } from './components/sign-language-interface';
 import { PatientHistory } from './components/patient-history';
 import { ImageWithFallback } from './components/figma/ImageWithFallback';
-import { DiseasePredictorPage } from "./DiseasePredictorPage";
+import { MLDiseasePrediction } from './components/ml-disease-prediction';
 
 function LandingPage() {
   return (
@@ -49,8 +50,8 @@ function LandingPage() {
             Real-time Translation
           </Badge>
           <Badge variant="secondary" className="text-sm px-3 py-1">
-            <Activity className="h-4 w-4 mr-2" />
-            AI Disease Prediction
+            <Brain className="h-4 w-4 mr-2" />
+            ML Disease Prediction
           </Badge>
           <Badge variant="secondary" className="text-sm px-3 py-1">
             <Hand className="h-4 w-4 mr-2" />
@@ -88,13 +89,13 @@ function LandingPage() {
         
         <Card className="text-center">
           <CardHeader>
-            <Activity className="h-8 w-8 text-green-600 mx-auto mb-2" />
-            <CardTitle className="text-lg">AI Disease Prediction</CardTitle>
+            <Brain className="h-8 w-8 text-green-600 mx-auto mb-2" />
+            <CardTitle className="text-lg">ML Disease Prediction</CardTitle>
           </CardHeader>
           <CardContent>
             <p className="text-sm text-muted-foreground">
-              Advanced AI analysis of symptoms and patient data to predict 
-              possible conditions and suggest appropriate care.
+              Advanced machine learning model trained on medical data to predict 
+              diseases based on symptom patterns with high accuracy.
             </p>
           </CardContent>
         </Card>
@@ -243,11 +244,12 @@ export default function App() {
                 Records
               </Button>
               <Button 
-                variant={activeTab === 'mlpredictor' ? 'default' : 'ghost'} 
-                onClick={() => setActiveTab('mlpredictor')}
+                variant={activeTab === 'ml-predict' ? 'default' : 'ghost'} 
+                onClick={() => setActiveTab('ml-predict')}
                 size="sm"
               >
-                Disease Predictor (ML)
+                <Brain className="h-4 w-4 mr-2" />
+                ML Diagnosis
               </Button>
             </nav>
             
@@ -294,7 +296,7 @@ export default function App() {
         {activeTab === 'doctors' && <DoctorRecommendations />}
         {activeTab === 'signs' && <SignLanguageInterface />}
         {activeTab === 'history' && <PatientHistory />}
-        {activeTab === 'mlpredictor' && <DiseasePredictorPage />}
+        {activeTab === 'ml-predict' && <MLDiseasePrediction />}
       </main>
 
       <footer className="border-t bg-muted/30 mt-16">
